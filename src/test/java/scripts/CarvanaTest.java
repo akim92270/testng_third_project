@@ -48,7 +48,7 @@ public class CarvanaTest extends Base {
     public void testMainNavigation(){
         driver.get("https://www.carvana.com/");
         String[] expectedMainNavigationSectionText = {"HOW IT WORKS", "ABOUT CARVANA", "SUPPORT & CONTACT"};
-        for (int i = 0; i < carvanaHomePage.mainNavigationSection.size(); i++) {
+        for (int i = 0; i < 3; i++) {
             Assert.assertTrue(carvanaHomePage.mainNavigationSection.get(i).isDisplayed());
             Assert.assertEquals(carvanaHomePage.mainNavigationSection.get(i).getText(), expectedMainNavigationSectionText[i]);
         }
@@ -115,6 +115,25 @@ public class CarvanaTest extends Base {
     And user clicks on "GO" button in the search input box
     Then user should see "mercedes-benz" in the url
     And validate each result tile
+
+
+    VALIDATION OF EACH TILE INCLUDES BELOW
+    Make sure each result tile is displayed with below information
+    1. an image
+    2. add to favorite button
+    3. tile body
+    ALSO VALIDATE EACH TILE BODY:
+    Make sure each tile body has below information
+    1. Inventory type - text should be displayed and should not be null
+    2. Year-Make-Model information - text should be displayed and should not be null
+    3. Trim-Mileage information - text should be displayed and should not be null
+    4. Price - Make sure that each price is more than zero
+    5. Monthly Payment information - text should be displayed and should not be null
+    6. Down Payment information - text should be displayed and should not be null
+    7. Delivery chip must be displayed as “Free Shipping”
+
+
+    NOTE: After completing all scripts, create an xml file called “test.xml” and make sure that you can run all scripts using “mvn test -Dsurefire.xmlSuiteFiles=test.xml”
      */
 
     @Test(priority = 6, description = "Validate the search result tiles")
@@ -124,7 +143,19 @@ public class CarvanaTest extends Base {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.carvana.com/cars");
         carvanaSearchCarsPage.searchInputBox.sendKeys("mercedes-benz");
         carvanaSearchCarsPage.goButton.click();
-        Assert.assertTrue(driver.getCurrentUrl().contains("mercedes-benz"));
+        //Assert.assertTrue(driver.getCurrentUrl().contains("mercedes-benz"));
         driver.getTitle();
+        for (int i = 0; i < carvanaMercedesBenz.mercedesBenzImages.size(); i++) {
+            Assert.assertTrue(carvanaMercedesBenz.mercedesBenzImages.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.favoriteIcon.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.titleBody.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.inventoryTitle.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.trimMileage.get(i).isDisplayed());
+            //Assert.assertTrue(Integer.parseInt(carvanaMercedesBenz.carPrice.get(i).getText())>0);
+            Assert.assertTrue(carvanaMercedesBenz.carEstimateMonthlyPrice.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.carDownPaymentPrice.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.inventoryTitle.get(i).isDisplayed());
+        }
+
     }
 }
