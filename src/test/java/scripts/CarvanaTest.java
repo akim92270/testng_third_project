@@ -158,14 +158,14 @@ public class CarvanaTest extends Base {
         Waiter.waitUntilConcurrentTitle(driver,10,"mercedes-benz");
         driver.getTitle();
         for (int i = 0; i < carvanaMercedesBenz.mercedesBenzImages.size(); i++) {
-            Assert.assertTrue(carvanaMercedesBenz.mercedesBenzImages.get(i).isDisplayed());
-            Assert.assertTrue(carvanaMercedesBenz.favoriteIcon.get(i).isDisplayed());
-            Assert.assertTrue(carvanaMercedesBenz.titleBody.get(i).isDisplayed());
-            Assert.assertTrue(carvanaMercedesBenz.inventoryTitle.get(i).isDisplayed());
-            Assert.assertTrue(carvanaMercedesBenz.trimMileage.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.mercedesBenzImages.get(i).isDisplayed() && carvanaMercedesBenz.inventoryTitle.get(i).getText() != null);
+            Assert.assertTrue(carvanaMercedesBenz.favoriteIcon.get(i).isDisplayed() && carvanaMercedesBenz.inventoryTitle.get(i).getText() != null);
+            Assert.assertTrue(carvanaMercedesBenz.titleBody.get(i).isDisplayed() && carvanaMercedesBenz.inventoryTitle.get(i).getText() != null);
+            Assert.assertTrue(carvanaMercedesBenz.inventoryTitle.get(i).isDisplayed() && carvanaMercedesBenz.inventoryTitle.get(i).getText() != null);
+            Assert.assertTrue(carvanaMercedesBenz.trimMileage.get(i).isDisplayed() && carvanaMercedesBenz.inventoryTitle.get(i).getText() != null);
             Assert.assertTrue(Integer.parseInt(carvanaMercedesBenz.carPrice.get(i).getText().replaceAll("[$,]",""))>0);
-            Assert.assertTrue(carvanaMercedesBenz.carEstimateMonthlyPrice.get(i).isDisplayed());
-            Assert.assertTrue(carvanaMercedesBenz.carDownPaymentPrice.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesBenz.carEstimateMonthlyPrice.get(i).isDisplayed() && carvanaMercedesBenz.inventoryTitle.get(i).getText() != null);
+            Assert.assertTrue(carvanaMercedesBenz.carDownPaymentPrice.get(i).isDisplayed() && carvanaMercedesBenz.inventoryTitle.get(i).getText() != null);
             Assert.assertTrue(carvanaMercedesBenz.inventoryTitle.get(i).isDisplayed());
         }
 
