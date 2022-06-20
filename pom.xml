@@ -52,7 +52,7 @@
                         <configuration>
                             <suiteXmlFiles>
                                 <!-- TestNG suite XML files -->
-                                <suiteXmlFile>Regression.xml</suiteXmlFile>
+                                <suiteXmlFile>test.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
