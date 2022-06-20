@@ -24,6 +24,10 @@ public class Waiter {
         new WebDriverWait(driver, seconds).until(ExpectedConditions.titleIs(title));
     }
 
+    public static void waitUntilConcurrentTitle(WebDriver driver,int seconds, String title){
+        new WebDriverWait(driver, seconds).until(ExpectedConditions.urlContains((title)));
+    }
+
     public static void waitUntilTextToBePresentInElement(WebDriver driver, int seconds, WebElement element, String text){
         new WebDriverWait(driver, seconds).until(ExpectedConditions.textToBePresentInElement(element, text));
     }

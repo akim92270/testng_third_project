@@ -27,6 +27,9 @@ public class CarvanaHomePage {
     @FindBy(id = "usernameField")
     public WebElement userNameInputBox;
 
+    @FindBy(css = "div[data-cv-test='Header.Modal']")
+    public WebElement headerModal;
+
     @FindBy(id = "passwordField")
     public WebElement passwordInputBox;
 
